@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Intelligent Document Processor</title>
+  <link rel="stylesheet" href="{{ url_for('summary.static', filename='styles.css') }}">
+  <script src="{{ url_for('summary.static', filename='script.js') }}" defer></script>
+</head>
+<body>
+
+  <!-- Global Top Navbar -->
+  <nav class="top-nav">
+    <div class="nav-left">
+      <h2>Intelligent Document Processor</h2>
+    </div>
+    <div class="nav-right">
+      <span class="hamburger" onclick="toggleMenu()">☰</span>
+    </div>
+    <div class="side-menu hidden" id="sideMenu">
+      <a href="/">🏠 Home</a>
+      <a href="/summary/">📝 Summarizer</a>
+      <a href="/ner/">#️⃣ NER</a>
+      <a href="/plagiarism/">📄 Plagiarism Checker</a>     
+      <a href="/translation/">🌐 Translator</a>
+      <a href="/chatbot/">💬 Chatbot</a>
+    </div>
+  </nav>
+
+  <div class="container">
+
+    <!-- Back to Home inside main section -->
+    <div class="back-link">
+      <a href="/" class="home-button"><span class="back-symbol">&lt;</span> Home</a>
+  </div>
+
+    <header>
+      <h1>📝 AI-Powered Document Summary</h1>
+      <p>Upload your PDF or Image for AI-generated summaries!</p>
+    </header>
+
+    <form id="upload-form" action="{{ url_for('summary.upload') }}" enctype="multipart/form-data" method="post">
+      <div class="upload-section">
+        <label class="custom-file-upload">
+          <input type="file" id="file" name="file" accept=".pdf,.png,.jpg,.jpeg" required />
+          📤 Upload PDF or Image
+        </label>
+
+        <select id="summary-length" class="styled-select">
+          <option value="short">Short Summary</option>
+          <option value="long">Long Summary</option>
+        </select>
+
+        <button type="submit" class="upload-btn">Generate Summary</button>
+      </div>
+      <p id="file-name">No file chosen</p>
+    </form>
+
+    <div id="processing" class="hidden">
+      <p>⏳ Processing your file. Please wait...</p>
+    </div>
+
+    <div id="result" class="hidden">
+      <h2>📝 Summary Result</h2>
+      <p><strong>Summary Length:</strong> <span id="summaryType">Short</span></p>
+      <p id="summaryText">Your summary will appear here...</p>
+      <div id="download-btn-container"></div>
+    </div>
+  </div>
+
+
+
+</body>
+</html>

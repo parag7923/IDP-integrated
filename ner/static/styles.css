@@ -1,0 +1,361 @@
+/* Base Styling (Consistent with Summarizer) */
+body {
+  font-family: 'Segoe UI', sans-serif; /* Using the summarizer's font */
+  background-color: #f1f4f9; /* Consistent background */
+  margin: 0;
+  padding: 0;
+  color: #333;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh; /* Ensure full viewport height */
+}
+
+/* Global Top Navbar (Similar to Summarizer) */
+.top-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #007bff; /* Primary blue color */
+  padding: 14px 30px;
+  color: white;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+.header-left {
+  margin: 0;
+  font-size: 1.4rem;
+  font-weight: 600;
+  letter-spacing: 1px;
+}
+
+.hamburger {
+  font-size: 26px;
+  cursor: pointer;
+  user-select: none;
+  transition: transform 0.3s;
+  background: none;
+  border: none;
+  color: white;
+}
+
+.hamburger:hover {
+  transform: scale(1.1);
+}
+
+/* Side Menu/Dropdown (Initially Hidden) */
+.side-menu {
+  position: absolute;
+  top: 58px;
+  right: 20px;
+  background-color: #ffffff;
+  color: #333;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  box-shadow: 0 8px 16px rgba(0,0,0,0.15);
+  padding: 10px 20px;
+  display: flex;
+  flex-direction: column;
+  z-index: 999;
+}
+
+.side-menu a {
+  text-decoration: none;
+  color: #181818;
+  padding: 8px 0;
+  font-weight: 500;
+  transition: color 0.2s;
+}
+
+.side-menu a:hover {
+  color: #0056b3;
+}
+
+.hidden {
+  display: none;
+}
+
+
+/* Container (Consistent with Summarizer) */
+.container {
+  width: 90%;
+  max-width: 1100px;
+  margin: 40px auto;
+  background-color: #ffffff;
+  padding: 35px;
+  border-radius: 16px;
+  box-shadow: 0px 10px 25px rgba(0, 0, 0, 0.07);
+  position: relative;
+   /* Allow container to grow and push footer down */
+}
+
+/* Back to Home Link */
+.back-link {
+  position: absolute;
+  top: 8px;
+  left: 10px;
+  font-size: 1rem;
+}
+
+.back-link a {
+  text-decoration: none;
+  color: #007bff;
+  font-weight: 500;
+  display: inline-flex;
+  align-items: center;
+  transition: color 0.3s;
+  padding: 5px 10px; /* Add padding for button appearance */
+  background-color: #f0f0f0; /* Background color for the button */ /* Text color */
+  border: 1px solid #ccc; /* Optional button border */
+  border-radius: 5px; /* Optional rounded corners */
+}
+
+.back-link a:hover {
+  color: #0061c9;
+}
+
+.back-symbol {
+  font-size: 1.3rem;
+  margin-right: 5px;
+}
+
+
+/* Header (Consistent with Summarizer) */
+h1 {
+  color: #007bff;
+  font-size: 2.4rem;
+  margin-bottom: 10px;
+  text-align: left; /* Adjust if needed */
+}
+
+p {
+  color: #555;
+  font-size: 1.1rem;
+  margin-bottom: 25px;
+  text-align: left; /* Adjust if needed */
+}
+
+/* Upload Section (Similar to Summarizer) */
+.center {
+  display: flex;
+  gap: 15px;
+  align-items: center;
+  flex-wrap: wrap;
+  justify-content: center; /* Center the upload elements */
+}
+
+/* Ensure file name is centered below the upload button on smaller screens */
+#upload-form > p#file-name.hidden {
+  display: none !important;
+}
+
+#upload-form > p#file-name {
+  text-align: center;
+  margin-top: 10px;
+  color: #555;
+  font-size: 14px;
+  width: 100%; /* Take full width on smaller screens */
+}
+
+.custom-file-upload {
+  background-color: #007bff;
+  color: #fff;
+  border-radius: 10px;
+  padding: 12px 25px;
+  cursor: pointer;
+  font-weight: 600;
+  font-size: 16px;
+  transition: all 0.3s ease;
+  border: 2px solid transparent;
+}
+
+.custom-file-upload:hover {
+  background-color: #fff;
+  color: #007bff;
+  border-color: #007bff;
+}
+
+input[type="file"] {
+  display: none;
+}
+
+.upload-btn {
+  background-color: #28a745; /* Similar to the "Generate Summary" button */
+  color: #fff;
+  padding: 12px 30px;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: bold;
+  transition: background-color 0.3s, transform 0.2s;
+}
+
+.upload-btn:hover {
+  background-color: #218838;
+  transform: scale(1.05);
+}
+
+/* Loader (Consistent Styling) */
+.loader {
+  border: 8px solid #f3f3f3;
+  border-top: 8px solid #007bff; /* Consistent primary color */
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  animation: spin 1s linear infinite;
+  margin: 20px auto;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+/* Results Section (Similar to Summarizer) */
+#result {
+  margin-top: 35px;
+  background-color: #e9f5ff; /* Light blue background */
+  padding: 25px;
+  border-radius: 12px;
+  border-left: 4px solid #007bff; /* Consistent border */
+  animation: fadeIn 0.4s ease;
+}
+
+#result h2 {
+  color: #007bff;
+  margin-bottom: 10px;
+}
+
+/* Download Buttons (Consistent Styling) */
+.download-buttons {
+  margin-top: 20px;
+  text-align: left; /* Adjust if needed */
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap; /* Allow buttons to wrap on smaller screens */
+}
+
+.download-btn {
+  background-color: #007bff; /* Primary blue */
+  color: #fff;
+  border: none;
+  padding: 12px 30px;
+  border-radius: 10px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.download-btn:hover {
+  background-color: #0056b3;
+}
+
+/* Overview Section */
+.overview {
+  background-color: #f0f0f0;
+  padding: 15px;
+  border-radius: 10px;
+  margin-bottom: 20px;
+  color: #333; /* Ensure text is readable on light background */
+}
+
+.overview strong {
+  color: #007bff; /* Primary blue for emphasis */
+}
+
+/* Select Filter */
+select {
+  margin-left: 0; /* Adjust margin */
+  padding: 10px 15px;
+  border-radius: 10px;
+  border: 1.5px solid #ccc;
+  font-size: 15px;
+  outline: none;
+  transition: border-color 0.3s;
+  margin-top: 10px; /* Add some top margin */
+  width: auto; /* Adjust width as needed */
+}
+
+select:focus {
+  border-color: #007bff;
+}
+
+/* Table Styling */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+  background-color: white;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+  border-radius: 8px;
+  overflow: hidden; /* For rounded corners on the table */
+}
+
+th, td {
+  border: 1px solid #ddd;
+  padding: 12px 15px;
+  text-align: left;
+}
+
+th {
+  background-color: #f8f9fa; /* Light gray header */
+  color: #333;
+  font-weight: bold;
+  text-align: center; /* Center table headers */
+}
+
+td {
+  text-align: center; /* Center table data */
+}
+
+tbody tr:nth-child(even) {
+  background-color: #f9f9f9;
+}
+
+
+/* Responsive Design (Adjust as needed) */
+@media (max-width: 768px) {
+  .top-header {
+      flex-direction: column;
+      align-items: flex-start;
+  }
+
+  #dropdownMenu {
+      top: auto;
+      bottom: 0;
+      left: 0;
+      right: auto;
+      width: 100%;
+      border-radius: 0;
+      box-shadow: none;
+  }
+
+  .center {
+      flex-direction: column;
+      gap: 10px;
+  }
+
+  .container {
+      padding: 30px 20px;
+      margin-top: 20px;
+  }
+
+  .download-buttons {
+      flex-direction: column;
+      align-items: stretch; /* Make buttons full width */
+  }
+
+  .download-btn {
+      margin-right: 0;
+      margin-bottom: 10px;
+      width: 100%;
+  }
+
+  select {
+      width: 100%; /* Make select full width on smaller screens */
+      margin-left: 0;
+  }
+}
