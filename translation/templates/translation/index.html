@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Intelligent Document Processor</title>
+    <link rel="stylesheet" href="{{ url_for('translation_bp.static', filename='styles.css') }}" />
+</head>
+<body>
+    <nav class="top-nav">
+        <div class="nav-left">
+            <h2>Intelligent Document Processor</h2>
+        </div>
+        <div class="nav-right">
+            <span class="hamburger" onclick="toggleMenu()">☰</span>
+        </div>
+        <div class="side-menu" id="sideMenu">
+            <a href="/">🏠 Home</a>
+            <a href="/summary/">📝 Summarizer</a>
+            <a href="/ner/">#️⃣ NER</a>
+            <a href="/plagiarism/">📄 Plagiarism Checker</a>     
+            <a href="/translation/">🌐 Translator</a>
+            <a href="/chatbot/">💬 Chatbot</a>
+        </div>
+    </nav>
+
+    <div class="container">
+        <div class="back-link">
+            <a href="/" class="home-button"><span class="back-symbol">&lt;</span> Home</a>
+        </div>
+
+        <h1>🌐 English to Hindi Translation</h1>
+        <p class="description">Upload an image or PDF containing English text, and we will translate it to Hindi for you!</p>
+
+        <div class="upload-container">
+            <label for="file" class="custom-file-upload">📤 Choose a File</label>
+            <input type="file" id="file" accept=".jpg, .jpeg, .png, .pdf" />
+            <button id="uploadButton">Translate</button>
+        </div>
+
+        <div id="fileName" class="file-name">No file chosen</div>
+
+        <div id="processing" class="hidden">
+            <p>⏳ Processing your file, please wait...</p>
+        </div>
+
+        <div id="result" class="result hidden">
+            <h3>✅ Translated Text</h3>
+            <div id="translatedText"></div>
+            <button id="downloadButton">Download as TXT</button>
+        </div>
+    </div>
+
+
+    <script src="{{ url_for('translation_bp.static', filename='script.js') }}"></script>
+    <script>
+        function toggleMenu() {
+            const menu = document.getElementById('sideMenu');
+            menu.classList.toggle('open');
+        }
+    </script>
+</body>
+</html>

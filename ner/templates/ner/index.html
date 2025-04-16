@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Intelligent Document Processor</title>
+  <link rel="stylesheet" href="{{ url_for('ner.static', filename='styles.css') }}">
+</head>
+<body>
+
+  <!-- Fixed Header with Navigation -->
+  <header class="top-header">
+    <div class="header-left">Intelligent Document Processor</div>
+    <div class="hamburger" onclick="toggleMenu()">☰</div>
+    <div class="side-menu hidden" id="sideMenu">
+      <a href="/">🏠 Home</a>
+      <a href="/summary/">📝 Summarizer</a>
+      <a href="/ner/">#️⃣ NER</a>
+      <a href="/plagiarism/">📄 Plagiarism Checker</a>     
+      <a href="/translation/">🌐 Translator</a>
+      <a href="/chatbot/">💬 Chatbot</a>
+    </div>
+  </header>
+
+  <!-- Main Container -->
+  <div class="container">
+
+    <!-- Home Link -->
+    <div class="back-link">
+      <a href="/" class="home-button"><span class="back-symbol">&lt;</span> Home</a>
+  </div>
+
+    <h1>#️⃣ AI-Powered Named Entity Recognition</h1>
+    <p>Upload your PDF or Img to extract named entities accurately!</p>
+
+    <form id="upload-form" enctype="multipart/form-data">
+      <div class="center">
+        <label class="custom-file-upload">
+          <input type="file" id="file" name="file" accept=".pdf,.png,.jpg,.jpeg" required />
+          📤 Upload PDF or Img 
+        </label>
+        <button type="submit" class="upload-btn">Extract Entities</button>
+      </div>
+      <p id="file-name" class="hidden">No file chosen</p>
+    </form>
+
+    <div class="loader hidden" id="loader"></div>
+
+    <div id="result" class="hidden">
+      <div class="download-buttons">
+        <button id="downloadCSV" class="download-btn hidden">📄 Download CSV</button>
+        <button id="downloadExcel" class="download-btn hidden">📊 Download Excel</button> 
+      </div>
+      
+      <h2>🔎 Extracted Entities</h2>
+      <div class="overview">
+        <p><strong>Total Entities Extracted:</strong> <span id="totalEntities">0</span></p>
+        <p><strong>Entities by Type:</strong> <span id="entitySummary">-</span></p>
+      </div>
+      
+      <label for="entityFilter">Filter by Entity Type:</label>
+      <select id="entityFilter">
+        <option value="All">All</option>
+      </select>
+      
+      <table id="entityTable">
+        <thead>
+          <tr>
+            <th>Entity</th>
+            <th>Label</th>
+          </tr>
+        </thead>
+        <tbody></tbody>
+      </table>
+    </div>
+  </div>
+
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"></script>
+  <script src="{{ url_for('ner.static', filename='script.js') }}"></script>
+
+  <script>
+    const labelDefinitions = {
+      PERSON: "Names of people",
+      ORG: "Organizations",
+      GPE: "Countries, cities, states",
+      DATE: "Specific dates or time ranges",
+      TIME: "Specific times",
+      LOC: "Non-GPE locations",
+      MONEY: "Monetary values",
+      PERCENT: "Percentage expressions",
+      CARDINAL: "Numbers not used in other types",
+      NORP: "Nationalities or religious/political groups",
+      EVENT: "Named events",
+      FAC: "Facilities (buildings, airports, etc.)",
+      PRODUCT: "Products",
+      LAW: "Named documents or laws",
+      LANGUAGE: "Languages mentioned",
+      QUANTITY: "Measurements or counts",
+      WORK_OF_ART: "Titles of books, songs, etc."
+    };
+
+    const observer = new MutationObserver(() => {
+      document.querySelectorAll('#entityTable td:nth-child(2)').forEach(td => {
+        const label = td.textContent.trim();
+        td.setAttribute('data-title', labelDefinitions[label] || 'Entity type');
+      });
+    });
+
+    observer.observe(document.querySelector('#entityTable tbody'), { childList: true });
+  </script>
+</body>
+</html>

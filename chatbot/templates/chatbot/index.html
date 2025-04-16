@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>📄 AI-Powered PDF Chatbot</title>
+    <link rel="stylesheet" href="{{ url_for('chatbot.static', filename='styles.css') }}">
+</head>
+<body>
+    <nav class="top-nav">
+        <div class="nav-left">
+            <h2>Intelligent Document Processor</h2>
+        </div>
+        <div class="nav-right">
+            <span class="hamburger" onclick="toggleMenu()">☰</span>
+        </div>
+        <div class="side-menu" id="sideMenu">
+            <a href="/">🏠 Home</a>
+            <a href="/summary/">📝 Summarizer</a>
+            <a href="/ner/">#️⃣ NER</a>
+            <a href="/plagiarism/">📄 Plagiarism Checker</a>     
+            <a href="/translation/">🌐 Translator</a>
+            <a href="/chatbot/">💬 Chatbot</a>
+        </div>
+    </nav>
+
+    <div class="container">
+        <div class="back-link">
+            <a href="/"><span class="back-symbol">&lt;</span> Home</a>
+        </div>
+        <div class="sidebar">
+            <h3>📄 Upload Your PDF</h3>
+            <form id="upload-form" method="POST" enctype="multipart/form-data">
+                <input type="file" name="pdf_file" accept=".pdf" required id="file-input"/>
+                <button type="submit" id="upload-btn">Upload PDF</button>
+            </form>
+
+            <div id="file-info" class="file-info">
+                <p><strong>Selected file:</strong> <span id="file-name">None</span></p>
+                <div id="processing" class="hidden">
+                    <p>⏳ Processing your file. Please wait...</p>
+                </div>
+                <div id="upload-status" class="upload-status hidden">
+                    <p>✅ PDF Uploaded and Processed Successfully!</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="main-content">
+            <h1>💬 AI-Powered PDF Chatbot</h1>
+            <p>Upload a PDF and ask questions about its content. Get quick and accurate answers using AI.</p>
+
+            <div class="chat-section">
+                <h3> Chat with your PDF</h3>
+                <div id="chat-container" class="chat-container">
+                    </div>
+
+                <div class="input-container">
+                    <input type="text" id="query-input" placeholder="Enter your query about the PDF" />
+                    <button id="get-answer-btn">Get Answer</button>
+                </div>
+
+                <div id="loading" class="loading hidden">
+                    <span>Loading...</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="{{ url_for('chatbot.static', filename='scripts.js') }}"></script>
+    <script>
+        function toggleMenu() {
+            const menu = document.getElementById('sideMenu');
+            menu.classList.toggle('open');
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,292 @@
+/* Base Styling */
+body {
+    font-family: 'Segoe UI', Arial, sans-serif;
+    background-color: #f1f4f9; /* Consistent background */
+    color: #333;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+/* Global Top Navbar */
+.top-nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #007bff;
+    padding: 14px 30px;
+    color: white;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.nav-left h2 {
+    margin: 0;
+    font-size: 1.4rem;
+    font-weight: 600;
+    letter-spacing: 1px;
+}
+
+#results h4 {
+    margin: 0;
+    font-size: 1.2rem;
+    font-weight: 500;
+    letter-spacing: 1px;
+    color: #0f0e0e;
+    margin-bottom: 15px;
+    text-align: center;
+}
+
+.hamburger {
+    font-size: 26px;
+    cursor: pointer;
+    user-select: none;
+    transition: transform 0.3s;
+}
+
+.hamburger:hover {
+    transform: scale(1.1);
+}
+
+/* Side Menu */
+.side-menu {
+    position: absolute;
+    top: 58px;
+    right: 20px;
+    background-color: #ffffff;
+    color: #333;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    box-shadow: 0 8px 16px rgba(0,0,0,0.15);
+    padding: 10px 20px;
+    display: flex;
+    flex-direction: column;
+    z-index: 999;
+    display: none; /* Initially hidden */
+}
+
+.side-menu.open {
+    display: flex; /* Shown when the 'open' class is added */
+}
+
+.side-menu a {
+    text-decoration: none;
+    color: #1e1e1e;
+    padding: 8px 0;
+    font-weight: 500;
+    transition: color 0.2s;
+}
+
+.side-menu a:hover {
+    color: #0056b3;
+}
+
+/* Container */
+.container {
+    width: 90%;
+    max-width: 1100px; /* Increased the maximum width */
+    margin: 40px auto;
+    padding: 30px;
+    background-color: white;
+    border-radius: 16px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+    position: relative; /* For positioning the back link */
+    text-align: center;
+}
+
+/* Back to Home Link */
+.back-link {
+    position: absolute;
+    top: 8px;
+    left: 10px;
+    font-size: 1rem;
+  }
+
+  .back-link a {
+    text-decoration: none;
+    color: #007bff;
+    font-weight: 500;
+    display: inline-flex;
+    align-items: center;
+    transition: color 0.3s;
+    padding: 5px 10px; /* Add padding for button appearance */
+    background-color: #f0f0f0; /* Background color for the button */ /* Text color */
+    border: 1px solid #ccc; /* Optional button border */
+    border-radius: 5px; /* Optional rounded corners */
+  }
+
+  .back-link a:hover {
+    color: #0061c9;
+  }
+
+  .back-symbol {
+    font-size: 1.3rem;
+    margin-right: 5px;
+  }
+
+h1 {
+    color: #007bff;
+    margin-bottom: 20px;
+    font-size: 2.2rem;
+}
+
+p {
+    font-size: 1.1rem;
+    color: #555;
+    margin-bottom: 30px;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+}
+
+.upload-row {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    justify-content: center; /* Center the items horizontally */
+}
+
+label[for="zip-file"] {
+    background-color: #007bff;
+    color: white;
+    padding: 12px 24px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: background-color 0.3s ease;
+}
+
+label[for="zip-file"]:hover {
+    background-color: #0056b3;
+}
+
+input[type="file"] {
+    display: none;
+}
+
+button[type="submit"] {
+    background-color: #4CAF50;
+    color: white;
+    font-size: 1rem;
+    padding: 12px 24px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+button[type="submit"]:hover {
+    background-color: #45a049;
+}
+
+#processing {
+    margin-top: 30px;
+    font-size: 1.1rem;
+    color: #007bff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+#results {
+    margin-top: 40px;
+    text-align: left;
+}
+
+#results h2 {
+    color: #4CAF50;
+    margin-bottom: 15px;
+    font-size: 1.6rem;
+    text-align: center;
+}
+
+#plagiarism-detected h3,
+#no-plagiarism h3 {
+    font-size: 1.3rem;
+    margin-top: 15px;
+    text-align: center;
+}
+
+#plagiarism-detected h3 {
+    color: #ff6347;
+}
+
+#no-plagiarism h3 {
+    color: #28a745;
+}
+
+#plagiarism-detected p,
+#no-plagiarism p {
+    font-size: 1.1rem;
+    line-height: 1.6;
+    margin-bottom: 10px;
+    text-align: center;
+}
+
+.hidden {
+    display: none;
+}
+
+.selected-file-name {
+    display: block;
+    margin-top: 10px;
+    font-size: 0.9rem;
+    color: #555;
+    text-align: center;
+}
+
+.download-button {
+    display: block;
+    margin: 20px auto 0;
+    padding: 10px 20px;
+    background-color: #28a745;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: background-color 0.3s ease;
+    text-decoration: none;
+}
+
+.download-button:hover {
+    background-color: #218838;
+}
+
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .container {
+        padding: 20px;
+    }
+
+    form {
+        width: 90%;
+    }
+
+    .upload-row {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    label[for="zip-file"],
+    button[type="submit"] {
+        width: 100%;
+        margin-bottom: 10px;
+    }
+}
