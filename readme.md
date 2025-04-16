@@ -5,18 +5,18 @@ python -m venv venv
 
 source venv/bin/activate
 
-# for plagiarism module
+## for plagiarism module
 pip install flask flask_socketio easyocr  pymupdf werkzeug
 
-# for translation--
+## for translation--
 pip install googletrans==4.0.0rc1 pypdf PyPDF2 pdfplumber  pdf2image langchain langchain_community langchain_google_genai
 
 pip install --upgrade googletrans
 
-# for summary--
+## for summary--
 pip install sentence-transformers accelerate>=0.26.0 
 
-# for ner--
+## for ner--
 pip install spacy openpyxl pandas
 
 python -m spacy download en_core_web_trf
@@ -24,7 +24,7 @@ python -m spacy download en_core_web_trf
 #for chatbot--
 pip install langchain_google_genai faiss-cpu
 
-# run --
+## run --
 python main.py
 
 
