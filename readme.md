@@ -27,14 +27,12 @@ pip install langchain_google_genai faiss-cpu
 ## run --
 python main.py
 
-
-pip uninstall torch torchvision 
-pip install torch torchvision --index-url https://download.pytorch.org/whl/cpu
-
 ## General Info-
 
 pip install flask flask_socketio easyocr pymupdf pandas googletrans==4.0.0rc1 numpy werkzeug pdf2image sentence-transformers faiss-cpu accelerate>=0.26.0 spacy langchain langchain_community langchain_google_genai pdfplumber langsmith pypdf PyPDF2 pdfplumber openpyxl uuid 
 
+pip uninstall torch torchvision 
+pip install torch torchvision --index-url https://download.pytorch.org/whl/cpu
 
 pip install -r requirements.txt
 pip install --upgrade googletrans
