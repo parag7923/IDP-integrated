@@ -9,7 +9,7 @@ source venv/bin/activate
 pip install flask flask_socketio easyocr  pymupdf werkzeug
 
 ## for translation--
-pip install googletrans==4.0.0rc1 pypdf PyPDF2 pdfplumber  pdf2image langchain langchain_community langchain_google_genai
+pip install googletrans==4.0.0rc1 pypdf PyPDF2 pdfplumber  pdf2image langchain langchain_community langchain_google_genai pdfminer.six
 
 pip install --upgrade googletrans
 
