@@ -99,9 +99,9 @@ body {
     top: 8px;
     left: 10px;
     font-size: 1rem;
-  }
-  
-  .back-link a {
+}
+
+.back-link a {
     text-decoration: none;
     color: #007bff;
     font-weight: 500;
@@ -112,16 +112,16 @@ body {
     background-color: #f0f0f0; /* Background color for the button */ /* Text color */
     border: 1px solid #ccc; /* Optional button border */
     border-radius: 5px; /* Optional rounded corners */
-  }
-  
-  .back-link a:hover {
+}
+
+.back-link a:hover {
     color: #0061c9;
-  }
-  
-  .back-symbol {
+}
+
+.back-symbol {
     font-size: 1.3rem;
     margin-right: 5px;
-  }
+}
 
 h1 {
     color: #007bff;
@@ -138,6 +138,8 @@ h1 {
     justify-content: center;
     gap: 15px;
     margin-bottom: 20px;
+    flex-direction: column; /* Stack elements on smaller screens */
+    align-items: center; /* Center items */
 }
 
 input[type="file"] {
@@ -152,6 +154,8 @@ input[type="file"] {
     cursor: pointer;
     font-size: 16px;
     transition: background-color 0.3s ease;
+    /* Make button full width on smaller screens */
+    margin-bottom: 10px; /* Add some space below the button */
 }
 
 .custom-file-upload:hover {
@@ -167,6 +171,7 @@ input[type="file"] {
     border: none;
     font-size: 16px;
     transition: background-color 0.3s ease;
+     /* Make button full width on smaller screens */
 }
 
 #uploadButton:hover {
@@ -227,20 +232,76 @@ h3 {
     background-color: #0056b3;
 }
 
-/* Responsive Design */
-@media (max-width: 768px) {
-    .container {
-        padding: 20px;
-    }
+/* Language Selection Styles */
+.language-selection {
+    margin-top: 20px;
+    display: flex;
+    justify-content: center; /* Center items horizontally */
+    align-items: center; /* Center items vertically */
+    gap: 20px; /* Space between the two select boxes */
+    margin-bottom: 20px;
+    flex-wrap: wrap; /* Allow wrapping on smaller screens */
+}
 
-    .upload-container {
-        flex-direction: column;
+.language-group {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.language-selection label {
+    margin-bottom: 5px;
+    font-weight: bold;
+    color: #333;
+    text-align: center; /* Center labels above select boxes */
+}
+
+.language-selection select {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    width: 150px; /* Adjust width as needed */
+    font-size: 16px;
+    color: #555;
+}
+
+.language-selection button {
+    background-color: #007bff;
+    color: white;
+    padding: 12px 24px;
+    border-radius: 8px;
+    cursor: pointer;
+    border: none;
+    font-size: 16px;
+    transition: background-color 0.3s ease;
+    margin-top: 20px; /* Move button below the language selection on smaller screens */
+    width: auto; /* Adjust width based on content */
+}
+
+.language-selection button:hover {
+    background-color: #0056b3;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 600px) {
+    .language-selection {
+        flex-direction: column; /* Stack language selection on smaller screens */
         align-items: stretch;
+        gap: 15px;
     }
 
-    .custom-file-upload,
-    #uploadButton {
+    .language-group {
         width: 100%;
-        margin-bottom: 10px;
+    }
+
+    .language-selection label,
+    .language-selection select {
+        width: 100%;
+        text-align: left; /* Align labels and selects to the left on smaller screens */
+    }
+
+    .language-selection button {
+        width: 100%;
+        margin-top: 15px;
     }
 }
