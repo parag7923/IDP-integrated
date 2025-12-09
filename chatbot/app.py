@@ -29,7 +29,7 @@ def process_pdf(file_path):
 # Gemini LLM setup
 llm = ChatGoogleGenerativeAI(
     model="gemini-2.0-flash",
-    api_key="AIzaSyBpZUY9sQrxkPFc64bVlkaO8D-K0s84KlY"
+    api_key=""
 )
 
 # Routes
